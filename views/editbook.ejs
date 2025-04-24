@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Edit Book</title>
+</head>
+
+<body>
+     <div>
+          <h2>แก้ไขหนังสือ</h2>
+          <form action="/books/updateBook/<%= books._id%>" method="post" enctype="multipart/form-data">
+               <div class="form-group">
+                    <label for="bookid">รหัสหนังสือ</label>
+                    <input type="text" id="bookid" name="bookid" value="<%= books.bookid%>" ><br />
+
+                    <label for="title">ชื่อหนังสือ</label>
+                    <input type="text" id="title" name="title" value="<%= books.title%>" ><br />
+
+                    <label for="category">หมวดหมู่</label>
+                    <select id="category" name="category">
+                         <option hidden><%= books.category%></option>
+                         <option value="วรรณกรรม">วรรณกรรม</option>
+                         <option value="การ์ตูน">การ์ตูน</option>
+                         <option value="นวนิยาย">นวนิยาย</option>
+                    </select><br />
+
+                    <label for="author">ชื่อผู้แต่ง</label>
+                    <input type="text" id="author" name="author" value="<%= books.author%>" ><br />
+
+                    <label for="publisher">สำนักพิมพ์</label>
+                    <input type="text" id="publisher" name="publisher" value="<%= books.publisher%>" ><br />
+
+                    <label for="synopsis">เรื่องย่อ</label>
+                    <input type="text" id="synopsis" name="synopsis" value="<%= books.synopsis%>" ><br />
+
+                    <label for="price">ราคา</label>
+                    <input type="number" id="price" name="price" value="<%= books.price%>" ><br />
+
+                    <label for="amount">จำนวนเล่ม</label>
+                    <input type="number" id="amount" name="amount" value="<%= books.amount%>"><br />
+
+                    <label for="image">ปกหนังสือ</label><br/>
+                    <img src="/images/<%= books.image%>" width="200px">
+                    <input type="file" id="image" name="image"><br />
+
+                    <button class="editbook">บันทึกข้อมูล</button>
+               </div>
+          </form>
+     </div>
+</body>
+
+</html>

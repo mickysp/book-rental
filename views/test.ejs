@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/test/search" method="GET">
+        <input type="text" name="query" placeholder="ค้นหาสินค้า">
+        <button type="submit">ค้นหา</button>
+    </form>
+
+    <img class="img_title" src="/images/7day.jpg" alt="">
+
+    <% if (books.length > 0) { %>
+        <% books.forEach(book => { %>
+            <div>
+                <p>ชื่อเรื่อง: <%= book.title %></p>   
+                <img src="/images/<%= book.image %>" alt="" width="200px">
+                <br><br>
+                <button><a class="detail" href="/users/detail/<%= book.id %>">ดูรายละเอียด</a></button>
+                <br><br>
+                <button onclick="">Add to Cart</button>
+                <br><br>
+            </div>
+        <% }) %>
+    <% } else { %>
+        <p>No books found.</p>
+    <% } %>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/login.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/footer.css">
+    <title>ลงทะเบียน</title>
+</head>
+
+<body>
+    <%- include('./Partials/nav.ejs') %>
+
+    <div class="pro-e">
+        <h2 class="h2-login">ลงทะเบียน</h2>
+        <p class="info-login">กรุณากรอกรายละเอียดของคุณเพื่อเข้าสู่บัญชีของคุณ</p>
+        <form action="/users/login" method="post">
+            <div class="form-group">
+                <label for="username">ชื่อผู้ใช้</label>
+                <input type="text" id="username" name="username" placeholder="กรอกชื่อผู้ใช้ของคุณ" required>
+                <label for="password">รหัสผ่าน</label>
+                <input type="password" id="password" name="password" placeholder="รหัสผ่าน" required>
+                <button class="btn-login">เข้าสู่ระบบ</button>
+                <p class="p-login">หากคุณยังไม่มีบัญชี? <a href="/users/signup">ลงทะเบียน</a></p>
+                <% if(typeof message !=='undefined' ) { %>
+                    <p style="color: red;">
+                        <%= message %>
+                    </p>
+                    <% } %>
+            </div>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+
+</body>
+
+</html>
